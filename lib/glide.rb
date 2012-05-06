@@ -24,9 +24,9 @@ module Glide
 
 	def self.calculate_totals(quotes)
 		quotes["total"] = {}
-		quotes["total"]["tenant_week"] = quotes.map { |e| e[1]["tenant_week"].to_f }.reduce(:+)
-		quotes["total"]["tenant_month"] = quotes.map { |e| e[1]["tenant_month"].to_f }.reduce(:+)
-		quotes["total"]["monthly_fee"] = quotes.map { |e| e[1]["monthly_fee"].to_f }.reduce(:+)
+		quotes["total"]["tenant_week"] = quotes.map { |e| e[1]["tenant_week"].to_f }.reduce(:+).to_s
+		quotes["total"]["tenant_month"] = quotes.map { |e| e[1]["tenant_month"].to_f }.reduce(:+).to_s
+		quotes["total"]["monthly_fee"] = quotes.map { |e| e[1]["monthly_fee"].to_f }.reduce(:+).to_s
 		
 		quotes		
 	end
