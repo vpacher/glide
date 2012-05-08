@@ -1,4 +1,4 @@
-# Glide
+# Glide [![Build Status](https://secure.travis-ci.org/vpacher/glide.png?branch=master)](http://travis-ci.org/vpacher/glide) [![Dependency Status](https://gemnasium.com/vpacher/glide.png)](https://gemnasium.com/vpacher/glide)
 
 The glide gem is a simple wrapper around the [Glide UK][glide] api to retrieve quotes for the individual services you require in one go and sum up the totals.
 
