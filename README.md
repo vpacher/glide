@@ -1,6 +1,6 @@
 # Glide
 
-The glide gem is a simple wrapper around the Glide UK api to retrived quotes for individual services required in one go and sum up the totals.
+The glide gem is a simple wrapper around the Glide UK api to retrieve quotes for the individual services you require in one go and sum up the totals.
 
 # Installation
 

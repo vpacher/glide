@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Glide::VERSION
   s.authors     = ["Volker Pacher"]
   s.email       = ["volker.pacher@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/vpacher/glide"
+  s.summary     = %q{a wrapper of the Glide Uk api}
+  s.description = %q{allows you to get quotes from the glide api for the services required in one go and sum up the totals}
 
   s.rubyforge_project = "glide"
 
