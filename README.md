@@ -1,6 +1,8 @@
 # Glide
 
-The glide gem is a simple wrapper around the Glide UK api to retrieve quotes for the individual services you require in one go and sum up the totals.
+The glide gem is a simple wrapper around the [Glide UK][glide] api to retrieve quotes for the individual services you require in one go and sum up the totals.
+
+[glide]: http://www.glide.uk.com/
 
 # Installation
 
@@ -40,6 +42,7 @@ that includes a stack trace and any details that may be necessary to reproduce
 the bug, including your gem version, Ruby version, and operating system.
 Ideally, a bug report should include a pull request with failing specs.
 
+[issues]: https://github.com/vpacher/glide/issues
 [gist]: https://gist.github.com/
 
 # Submitting a Pull Request
