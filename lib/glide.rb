@@ -5,6 +5,16 @@ require 'json'
 
 module Glide
 
+	@@api_key = ""
+
+	def self.api_key
+		@@api_key
+	end
+
+	def self.api_key=(key)
+		@@api_key = key
+	end
+
 	def self.get_qote(services = ['elec'], extra = {}, period = 6, tenants = 1)
 		quotes = {}
 		services.each do |service|
@@ -14,7 +24,7 @@ module Glide
 	end
 
 	def self.get_service_quote(service, extra, period, tenants)
-		res = Timeout::timeout(5) { HTTParty.get("https://api.glide.uk.com/signup/servicePrice.json", :query => {:service => service, :period => period, :extra => extra, :tenants => tenants, :key => GLIDE_API_KEY}) }
+		res = Timeout::timeout(5) { HTTParty.get("https://api.glide.uk.com/signup/servicePrice.json", :query => {:service => service, :period => period, :extra => extra, :tenants => tenants, :key => api_key}) }
 		JSON.parse(res.body)["results"]
 	rescue Timeout::Error => e
 		{"message" => "A timeout error has occured", "error" => 2}
