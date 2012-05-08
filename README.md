@@ -31,9 +31,9 @@ where the paramaters are as follows:
 
 service: Can be one or any combination of elec, water, gas, telephone, broadband and tv_license    
 extra: required additional information for certain services:
-	* for elec 'green', 'nogas' or 'green,nogas' is optional
-	* for water postcode is required
-	* for broadband llu24s for standard broadband or llu24p for premium broadband is required
+* for elec 'green', 'nogas' or 'green,nogas' is optional
+* for water postcode is required
+* for broadband llu24s for standard broadband or llu24p for premium broadband is required
 
 # Submitting an Issue
 We use the [GitHub issue tracker][issues] to track bugs and features. Before
