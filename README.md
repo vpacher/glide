@@ -1,4 +1,5 @@
 # Glide [![Build Status](https://secure.travis-ci.org/vpacher/glide.png?branch=master)](http://travis-ci.org/vpacher/glide) [![Dependency Status](https://gemnasium.com/vpacher/glide.png)](https://gemnasium.com/vpacher/glide)
+=====
 
 The glide gem is a simple wrapper around the [Glide UK][glide] api to retrieve quotes for the individual services you require in one go and sum up the totals.
 
@@ -30,9 +31,9 @@ where the paramaters are as follows:
 
 service: Can be one or any combination of elec, water, gas, telephone, broadband and tv_license    
 extra: required additional information for certain services:
-	for elec 'green', 'nogas' or 'green,nogas' is optional
-	for water postcode is required
-	for broadband llu24s for standard broadband or llu24p for premium broadband is required
+	* for elec 'green', 'nogas' or 'green,nogas' is optional
+	* for water postcode is required
+	* for broadband llu24s for standard broadband or llu24p for premium broadband is required
 
 # Submitting an Issue
 We use the [GitHub issue tracker][issues] to track bugs and features. Before
@@ -69,5 +70,3 @@ Copyright (c) 2012 Volker Pacher
 See [LICENSE][] for details.
 
 [license]: https://github.com/vpacher/glide/blob/master/LICENSE.md
-
-=====
