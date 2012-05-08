@@ -17,9 +17,9 @@ describe Glide do
 			quotes.should be_an_instance_of(Hash)
 			quotes["elec"]["monthly_fee"].should eql("30.20")
 			quotes["water"]["tenant_month"].should eql("30.20")
-			quotes["total"]["monthly_fee"].should eql("181.2")
+			quotes["total"]["monthly_fee"].should eql("181.20")
 			quotes["total"]["tenant_week"].should eql("41.82")
-			quotes["total"]["tenant_month"].should eql("181.2")
+			quotes["total"]["tenant_month"].should eql("181.20")
 		end
 
 	end
@@ -50,9 +50,9 @@ describe Glide do
 		it "should return totals as new element in hash" do
 			quotes = {"elec" => {"monthly_fee"=>"30.20", "tenant_week"=>"6.97", "notes"=>nil, "tenant_month"=>"30.20"}, "water" => {"monthly_fee"=>"30.20", "tenant_week"=>"6.97", "notes"=>nil, "tenant_month"=>"30.20"}}
 			rt = Glide.calculate_totals(quotes)
-			rt["total"]["monthly_fee"].should eql("60.4")
+			rt["total"]["monthly_fee"].should eql("60.40")
 			rt["total"]["tenant_week"].should eql("13.94")
-			rt["total"]["tenant_month"].should eql("60.4")
+			rt["total"]["tenant_month"].should eql("60.40")
 		end
 	end
 
