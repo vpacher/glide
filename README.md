@@ -65,6 +65,6 @@ Ideally, a bug report should include a pull request with failing specs.
 Copyright (c) 2012 Volker Pacher
 See [LICENSE][] for details.
 
-[license]: https://github.com/vpacher/glide/master/LICENSE.md
+[license]: https://github.com/vpacher/glide/blob/master/LICENSE.md
 
 =====
