@@ -11,10 +11,11 @@ describe Glide do
 	
 	describe "get_quote" do 
 
-		it 'should return a hash' do
+		it 'should return a hash filled with quotes and sum up totals' do
 			HTTParty.should_receive(:get).exactly(6).times.and_return(response_elec)
 			quotes = Glide.get_quote(services = ["elec", "water", "gas", "telephone", "broadband", "tv_license"])
 			quotes.should be_an_instance_of(Hash)
+			quotes["elec"]["human_name"].should be_an_instance_of(String)
 			quotes["elec"]["monthly_fee"].should eql("30.20")
 			quotes["water"]["tenant_month"].should eql("30.20")
 			quotes["total"]["monthly_fee"].should eql("181.20")
@@ -53,6 +54,17 @@ describe Glide do
 			rt["total"]["monthly_fee"].should eql("60.40")
 			rt["total"]["tenant_week"].should eql("13.94")
 			rt["total"]["tenant_month"].should eql("60.40")
+		end
+	end
+
+	describe "insert_human_name" do
+		it "should return the human readable name of the service" do
+			Glide.insert_human_name("elec").should eql("Electricity")
+			Glide.insert_human_name("water").should eql("Water")
+			Glide.insert_human_name("gas").should eql("Gas")
+			Glide.insert_human_name("telephone").should eql("Telephone")
+			Glide.insert_human_name("broadband").should eql("Broadband")
+			Glide.insert_human_name("tv_license").should eql("TV License")
 		end
 	end
 

@@ -4,10 +4,10 @@ require 'httparty'
 require 'json'
 
 module Glide
-	@@api_key = ""
+	HUMAN_NAME = {"elec" => "Electricity", "tv_license" => "TV License"}
 
 	def self.api_key
-		@@api_key
+		@@api_key ||= ""
 	end
 
 	def self.api_key=(key)
@@ -18,6 +18,7 @@ module Glide
 		quotes = {}
 		services.each do |service|
 			quotes[service] = get_service_quote(service, extra[service], period, tenants)
+			quotes[service]["human_name"] = insert_human_name(service)
 		end
 		calculate_totals(quotes)
 	end
@@ -31,11 +32,15 @@ module Glide
 		{"message" => "An error has occured", "error" => 3}
 	end
 
+	def self.insert_human_name(service)
+		HUMAN_NAME[service] || service.capitalize
+	end
+
 	def self.calculate_totals(quotes)
 		quotes["total"] = {}
-		quotes["total"]["tenant_week"] = "%.2f" % quotes.map { |e| e[1]["tenant_week"].to_f }.reduce(:+)
-		quotes["total"]["tenant_month"] = "%.2f" % quotes.map { |e| e[1]["tenant_month"].to_f }.reduce(:+)
-		quotes["total"]["monthly_fee"] = "%.2f" % quotes.map { |e| e[1]["monthly_fee"].to_f }.reduce(:+)
+		["tenant_week", "tenant_month", "monthly_fee"].each do |k|
+			quotes["total"][k] = "%.2f" % quotes.map { |e| e[1][k].to_f }.reduce(:+)
+		end
 
 		quotes		
 	end
