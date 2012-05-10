@@ -26,7 +26,7 @@ describe Glide do
 	end
 	
 	describe "get_service_quote" do
-	
+		
 		it 'should respond with HTTParty response and convert to json' do
 			HTTParty.should_receive(:get).and_return(response_elec)
 			# HTTParty.should_receive(:get) do |args|
@@ -54,6 +54,14 @@ describe Glide do
 			rt["total"]["monthly_fee"].should eql("60.40")
 			rt["total"]["tenant_week"].should eql("13.94")
 			rt["total"]["tenant_month"].should eql("60.40")
+		end
+
+		it "should return 0.00 when nil values are summed" do
+			quotes = {"elec" => {"message" => "A timeout error has occured", "error" => 2}, "water" => {"message" => "An error has occured", "error" => 3}}
+			rt = Glide.calculate_totals(quotes)
+			rt["total"]["monthly_fee"].should eql("0.00")
+			rt["total"]["tenant_week"].should eql("0.00")
+			rt["total"]["tenant_month"].should eql("0.00")
 		end
 	end
 
